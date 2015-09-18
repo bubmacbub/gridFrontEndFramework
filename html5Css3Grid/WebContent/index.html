@@ -1,6 +1,10 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+<style>
+#div1, #div2
+{float:left; width:100px; height:35px; margin:10px;padding:10px;border:1px solid #aaaaaa;}
+</style>
 <script>
 function allowDrop(ev) {
     ev.preventDefault();
@@ -18,11 +22,13 @@ function drop(ev) {
 </script>
 </head>
 <body>
+<div id="masterDiv" ondragover="allowDrop(event)"  ondrop="drop(event)">
+<input type="hidden">
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="/images/img_logo.gif" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="31">
+</div>
 
-<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-
-<img id="drag1" src="/images/img_logo.gif" draggable="true"
-ondragstart="drag(event)" width="336" height="69">
-
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+</div>
 </body>
 </html>
